@@ -31,11 +31,11 @@ stages:
     steps:       
     - script: |
         python3 --version
-        python3.10 --version
+        python3.9 --version
       displayName: 'Run a multi-line script'
       
     - script: |
-        python3.10 -m venv venv
+        python3.9 -m venv venv
         source venv/bin/activate
         python --version
         make install
