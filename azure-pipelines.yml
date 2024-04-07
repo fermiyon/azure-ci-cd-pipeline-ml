@@ -43,7 +43,6 @@ stages:
 
     - script: |
         source venv/bin/activate
-        export PATH=$HOME/.local/bin:$PATH
         make lint
       workingDirectory: $(projectRoot)
       displayName:  'myStep 2 - Run lint tests'
