@@ -28,7 +28,12 @@ stages:
   jobs:
   - job: BuildJob
     pool: flask_agent_pool
-    steps:    
+    steps:       
+    - script: |
+        python3 --version
+        python3.10 --version
+      displayName: 'Run a multi-line script'
+      
     - script: |
         make install
       workingDirectory: $(projectRoot)
