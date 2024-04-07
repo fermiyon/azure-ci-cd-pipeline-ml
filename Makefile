@@ -1,10 +1,10 @@
 setup:
-	python3 -m venv ~/.venv
+	python3.10 -m venv ~/.venv
 	#source ~/.venv/bin/activate
 
 install:
-	pip install --upgrade pip &&\
-		pip install -r requirements.txt
+	pip3.10 install --upgrade pip &&\
+		pip3.10 install -r requirements.txt
 
 test:
 	#python -m pytest -vv --cov=myrepolib tests/*.py
