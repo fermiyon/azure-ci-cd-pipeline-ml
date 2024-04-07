@@ -35,6 +35,8 @@ stages:
       displayName: 'Run a multi-line script'
       
     - script: |
+        python3.10 -m venv venv
+        source venv/bin/activate
         make install
       workingDirectory: $(projectRoot)
       displayName: 'myStep 1'
