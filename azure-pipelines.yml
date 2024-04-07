@@ -42,22 +42,14 @@ stages:
       displayName: 'myStep 1'
 
     - script: |
-        python3.10 -m venv venv
-        source venv/bin/activate
-        export PATH=$HOME/.local/bin:$PATH
-        make install
-      workingDirectory: $(projectRoot)
-      displayName: 'myStep 2'
-
-    - script: |
         source venv/bin/activate
         export PATH=$HOME/.local/bin:$PATH
         make lint
       workingDirectory: $(projectRoot)
-      displayName:  'myStep 3 - Run lint tests'
+      displayName:  'myStep 2 - Run lint tests'
 
     - task: ArchiveFiles@2
-      displayName: 'myStep 4 - Archive files'
+      displayName: 'myStep 3 - Archive files'
       inputs:
         rootFolderOrFile: '$(projectRoot)'
         includeRootFolder: false
