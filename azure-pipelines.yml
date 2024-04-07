@@ -42,12 +42,14 @@ stages:
       displayName: 'myStep 1'
 
     - script: |
+        source venv/bin/activate
         export PATH=$HOME/.local/bin:$PATH
         make install
       workingDirectory: $(projectRoot)
       displayName: 'myStep 2'
 
     - script: |
+        source venv/bin/activate
         export PATH=$HOME/.local/bin:$PATH
         make lint
       workingDirectory: $(projectRoot)
