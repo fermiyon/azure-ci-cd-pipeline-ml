@@ -14,7 +14,7 @@ variables:
   azureServiceConnectionId: 'flask_sc'
   
   # TODO: Specify the value of the existing Web App name
-  webAppName: 'flask167'
+  webAppName: 'flask145'
 
   # Environment name
   environmentName: 'venv'
