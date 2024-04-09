@@ -1,12 +1,18 @@
 """
 Load Testing with Locus:
     locust -f locustfile.py
+
+    locust -f locustfile.py --headless -u 10 -r 5 --run-time 30
+
 Reference: https://github.com/locustio/locust/blob/master/examples/basic.py
 """
+
 from locust import HttpUser, task, between, TaskSet
+
 
 class UserTasks(TaskSet):
     """Task Set"""
+
     @task
     def index(self):
         """GET: index test task"""
@@ -22,12 +28,14 @@ class UserTasks(TaskSet):
             "TAX": {"0": 296.0},
             "PTRATIO": {"0": 15.3},
             "B": {"0": 396.9},
-            "LSTAT": {"0": 4.98}
+            "LSTAT": {"0": 4.98},
         }
         self.client.post("/predict", json=data, headers=headers)
 
+
 class WebsiteUser(HttpUser):
     """a class used in locust load testing to represent a user"""
+
     wait_time = between(1, 3)
 
     host = "https://flask145.azurewebsites.net:443"
