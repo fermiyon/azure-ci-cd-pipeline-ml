@@ -35,47 +35,61 @@ Libraries: pandas, flask, scikit-learn, joblib, locust, pylint, pytest, werkzeug
 
 ### 1. Run project locally
 #### 1.1 Clone the repository and checkout build-deploy-branch
-```
+
+```bash
 https://github.com/fermiyon/azure-ci-cd-pipeline-ml.git
 
 git checkout build-deploy
 ```
+
 You can also fork the repository and clone the forked repository.
 #### 1.2 Make sure that you are running python 3.9 in the local
-```
+
+```bash
 python --version
 ```
+
 #### 1.3 Create virtual environment inside the project folder
-```
+
+```bash
 python -m venv venv
 ```
+
 #### 1.4 Activate virtual environment
-```
+
+```bash
 source venv/bin/activate
 ```
 
 (For Windows with Gitbash, replace bin with Scripts in the command)
-```
+
+```bash
 source venv/Scripts/activate
 ```
 
 #### 1.5 Run Makefile
 The `make all` command installs the necessary Python packages, performs linting on app.py and runs tests.
-```
+
+```bash
 make all 
 ```
+
 ![screenshot](screenshots/2-local-makefile-all-passed.png)
 
 #### 1.6 Run App
-```
+
+```bash
 flask run
 ```
+
 ![screenshot](screenshots/1-local-flask-run.png)
 
 #### 1.7 Test in the local
-```
+
+```bash
 ./make_prediction.sh
 ```
+
 You should see the following output: 
 ![screenshot](screenshots/2-local-test.png)
 
@@ -141,13 +155,17 @@ Go to https://portal.azure.com and open Azure Cloud Shell.
 
 #### 3.2 Create SSH keygen on Azure Cloud Shell
 Create ssh keys
-```
+
+```bash
 ssh-keygen -t rsa
 ```
+
 Look ssh key and copy the key.
-```
+
+```bash
 cat .ssh/id_rsa.pub
 ```
+
 ![screenshot](screenshots/azure-ssh-key.png)
 
 #### 3.3 Add the Azure SSH key to GitHub SSH keys
@@ -156,29 +174,30 @@ Go to https://github.com/settings/keys and add new SSH key. Paste the SSH key th
 ![screenshot](screenshots/git-ssh-key.png)
 
 #### 3.4 Clone the git repo on Azure using the cloud shell
-```
+```bash
 git clone git@github.com:fermiyon/azure-ci-cd-pipeline-ml.git 
 ```
 ![screenshot](screenshots/azure-cli-git-clone.png)
 #### 3.5 Create virtual environment of python3.9
-```
+```bash
 python3.9 -m venv venv
 ```
 ![screenshot](screenshots/azure-create-venv.png)
 
 #### 3.6 Activate virtual environment
-```
+```bash
 source venv/bin/activate
 ```
 ![screenshot](screenshots/azure-source-activate.png)
 #### 3.7 Checkout to build-deploy branch
-```
+```bash
 cd azure-ci-cd-pipeline-ml
 git checkout build-deploy
 ```
 ![screenshot](screenshots/azure-git-checkout.png)
 #### 3.8 Run Makefile
-```
+
+```bash
 make all
 ```
 ![screenshot](screenshots/azure-make-all-1.png)
@@ -188,7 +207,8 @@ make all
 (This may take up to 10 min.)
 
 Run the following command to create and deploy a web app on Azure.
-```
+
+```bash
 az webapp up --resource-group Azuredevops --sku B1 --logs --runtime "PYTHON:3.9" -n your_app_name
 ```
 ![screenshot](screenshots/azure-webapp.png)
@@ -199,7 +219,7 @@ You can now see the log stream
 
 You can also see the log stream via the command below
 
-```
+```bash
 az webapp log tail --resource-group Azuredevops --name your_app_name
 ```
 
@@ -221,7 +241,7 @@ Note: Make sure you have the same app name in the the `make_predict_azure_app.sh
 
 ![screenshot](screenshots/azure-sh-settings.png)
 
-```
+```bash
 cd azure-ci-cd-pipeline-ml/
 chmod +x make_predict_azure_app.sh
 ./make_predict_azure_app.sh
@@ -273,13 +293,14 @@ Creating the VM via Azure Web Interface
 ![screenshot](screenshots/azure-create-vm-2.png)
 
 Alternatively you can create via Azure CLI
-```
+
+```bash
 az vm create --resource-group Azuredevops --name appVM --admin-username devopsagent --admin-password your_password --image Ubuntu2204 --size Standard_DS1_v2 --generate-ssh-keys
 ```
 
 #### 5.2 Configure the self-hosted agent VM
 Connect to the VM via Azure Cloud Shell
-```
+```bash
 ssh devopsagent@PUBLIC_IP_ADDRESS
 ```
 ![screenshot](screenshots/devopsagent-ssh.png)
@@ -304,7 +325,7 @@ Get set-up file URL to be used in curl command
 #### 5.4 Configure the self-hosted agent VM
 After a succesfull connection to the VM, configure the VM as a self hosted agent with the following commands.
 
-```
+```bash
 sudo snap install docker
 sudo groupadd docker
 sudo usermod -aG docker $USER
@@ -312,11 +333,11 @@ sudo usermod -aG docker $USER
 
 Download the linux agent (URL is the URL we copied earlier.) 
 
-```
+```bash
 curl -O https://vstsagentpackage.azureedge.net/agent/3.236.1/vsts-agent-linux-x64-3.236.1.tar.gz
 ```
 
-```
+```bash
 mkdir myagent && cd myagent
 tar zxvf ~/vsts-agent-linux-x64-3.236.1.tar.gz
 ```
@@ -327,23 +348,25 @@ Server url is: https://dev.azure.com/your_organization
 
 Agent pool is: the pool name you created before. For example: flask_agent_pool
 
-```
+```bash
 ./config.sh
 ```
+
 ![screenshot](screenshots/devopsagent-config-sh.png)
 
 Install specific packages on the self-hosted agent VM if necessary (zip etc.)
 
 Run svc
 
-```
+```bash
 sudo ./svc.sh install
 sudo ./svc.sh start
 ```
+
 ![screenshot](screenshots/devopsagent-svc.png)
 
 Prepare the agent
-```
+```bash
 sudo apt-get update
 sudo apt update
 sudo apt-get install build-essential
@@ -352,13 +375,15 @@ sudo add-apt-repository ppa:deadsnakes/ppa
 ```
 Install python 
 
-```
+```bash
 sudo apt install python3.9
 sudo apt-get install python3.9-venv
 sudo apt-get install python3-pip
 ```
+
 Control python version
-```
+
+```bash
 python3.9 --version
 ```
 ![screenshot](screenshots/devopsagent-python-version.png)
@@ -411,6 +436,8 @@ This YAML file is a configuration for a continuous integration and continuous de
 
 **Deploy Stage**: This stage depends on the successful completion of the Build stage. 
 - It deploys the web app to Azure using the uploaded artifact.
+
+For more information, please check [official Azure Pipeline documentation](https://docs.microsoft.com/en-us/azure/devops/pipelines/ecosystems/python-webapp?view=azure-devops#yaml-pipeline-explained)
 
 ```yaml
 # Starter pipeline    
@@ -519,7 +546,7 @@ Make a change in app.py and push that change to the repository.
 
 ![screenshot](screenshots/pipeline-git-push.png)
 
-```
+```bash
 git add .
 git commit -m "Update h3 text in home function"
 git push origin build-deploy
@@ -551,6 +578,16 @@ Open Azure Cloud Shell and test the prediction.
 ```
 ![screenshot](screenshots/pipeline-run-test-predict.png)
 
+#### 6.5 Output of streamed log files from the deployed application
+
+Run the following command in the Azure Cloud Shell to view the streamed log files
+
+```bash
+az webapp log tail --resource-group Azuredevops --name your_app_name
+```
+
+![screenshot](screenshots/pipeline-run-log.png)
+
 ### 7. Load test
 Running load test with locust.
 
@@ -559,7 +596,7 @@ Running load test with locust.
 #### 7.1 Locust with web interface
 You can run this command on your local repository to use the Locust web interface.
 
-```
+```bash
 locust -f locustfile.py -H https://your_app_name.azurewebsites.net
 ```
 ![screenshot](screenshots/locust-web-run.png)
