@@ -16,7 +16,7 @@ By Selman Karaosmanoglu
 Deploy a Flask-based machine learning application on Azure, with the CI/CD pipelines for streamlined updates and maintenance
 
 ## Project Plan
-* [Trello board for the project](https://1drv.ms/x/s!AktLOGIOQkqecKloTqzKHymAFOY?e=cGzMa2)
+* [Trello board for the project](https://trello.com/b/komPo9UB/project)
 * [Spreadsheet for the project plan](https://1drv.ms/x/s!AktLOGIOQkqecKloTqzKHymAFOY?e=cGzMa2)
 
 ## Prerequisites
