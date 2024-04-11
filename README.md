@@ -2,12 +2,12 @@
 ![GitHub commit activity (branch)](https://img.shields.io/github/commit-activity/t/fermiyon/azure-ci-cd-pipeline-ml/build-deploy)
 
 [![CI](https://github.com/fermiyon/azure-ci-cd-pipeline-ml/actions/workflows/pythonapp.yml/badge.svg?branch=main)](https://github.com/fermiyon/azure-ci-cd-pipeline-ml/actions/workflows/pythonapp.yml)
-[![Build Status](https://dev.azure.com/odluser257352/flask-ml/_apis/build/status%2Ffermiyon.azure-ci-cd-pipeline-ml%20(1)?branchName=build-deploy)](https://dev.azure.com/odluser257352/flask-ml/_build/latest?definitionId=2&branchName=build-deploy)
+[![Build Status](https://dev.azure.com/odluser257419/flask-ml/_apis/build/status%2Ffermiyon.azure-ci-cd-pipeline-ml?branchName=build-deploy)](https://dev.azure.com/odluser257419/flask-ml/_build/latest?definitionId=1&branchName=build-deploy)
 
 By Selman Karaosmanoglu 
 
 ## Date created
-09 April 2024
+11 April 2024
 
 # Azure Machine Learning Operations Project: Deploy a Flask-based ML Application with Integrated CI/CD Pipelines
 
