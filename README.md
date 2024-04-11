@@ -34,7 +34,7 @@ Libraries: pandas, flask, scikit-learn, joblib, locust, pylint, pytest, werkzeug
 
 
 ### 1. Run project locally
-#### 1.1 Clone the repository and checkout build-deploy-branch
+#### 1.1 Clone (or first fork then clone) the repository and checkout build-deploy-branch
 
 ```bash
 https://github.com/fermiyon/azure-ci-cd-pipeline-ml.git
@@ -105,6 +105,7 @@ Click on the actions tab. If you have prior workflows, you can see the workflows
 ![screenshot](screenshots/github-actions-new.png)
 
 Set up a workflow yourself.
+
 ![screenshot](screenshots/github-actions-new-2.png)
 
 Create a workflow that checks out the code, sets up Python, installs dependencies, lints the code, and runs tests whenever there’s a push or a pull request to the main or build-deploy branches. It’s a standard continuous integration(CI) setup for a Python project. The following yaml file does that.
@@ -151,6 +152,7 @@ The following parts
 #### 3.1 Open Azure Cloud Shell (or Azure CLI)
 
 Go to https://portal.azure.com and open Azure Cloud Shell.
+
 ![screenshot](screenshots/azure-cloud-shell.png)
 
 #### 3.2 Create SSH keygen on Azure Cloud Shell
@@ -260,6 +262,7 @@ Go to dev.azure.com
 
 #### 4.3 Create new service connection
 Create new service connection under project settings
+
 ![screenshot](screenshots/azure-devops-project-settings.png)
 
 ![screenshot](screenshots/azure-devops-project-settings-sc.png)
@@ -272,6 +275,7 @@ Create new service connection under project settings
 
 #### 4.4 Create new token
 Create the token and save it somewhere secure to be used later.
+
 ![screenshot](screenshots/azure-devops-token.png)
 
 ![screenshot](screenshots/azure-devops-token-create.png)
@@ -280,6 +284,7 @@ Create the token and save it somewhere secure to be used later.
 
 #### 4.5 Add agent pool
 Under project settings, add agent pool.
+
 ![screenshot](screenshots/azure-devops-project-settings.png)
 
 ![screenshot](screenshots/azure-devops-agent-pool.png)
@@ -403,9 +408,11 @@ After these steps you can see agent VM in projects agent pool.
 ### 6. Create pipelines on Azure DevOps
 #### 6.1 Creating new pipeline
 In Azure Devops, in the project, go to Pipelines section and click the new pipeline button. 
+
 ![screenshot](screenshots/devops-new-pipeline.png)
 
 Select GitHub
+
 ![screenshot](screenshots/devops-new-pipeline-2.png)
 
 You may need to re-enter your GitHub password for confirmation, and if the Azure Pipelines extension is not installed, GitHub will prompt you to install it.
@@ -415,9 +422,11 @@ Select the repository.
 ![screenshot](screenshots/devops-new-pipeline-3.png)
 
 For configuration, select existing yaml file since we have yaml file in our repository. If you don't have yaml file, you can select a starter template. 
+
 ![screenshot](screenshots/devops-new-pipeline-4.png)
 
 Select build-deploy branch and azure-pipelines.yml file. 
+
 ![screenshot](screenshots/devops-new-pipeline-5.png)
 
 
