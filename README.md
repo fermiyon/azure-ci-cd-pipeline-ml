@@ -514,17 +514,42 @@ After all these steps above, our service is finally deployed. You can check the 
 
 ![screenshot](screenshots/deployment-succeded.png)
 
-#### 6.3 Test run
+#### 6.3 Test run of the pipeline
+Make a change in app.py and push that change to the repository.
+
+![screenshot](screenshots/pipeline-git-push.png)
 
 ```
-make change push and test
+git add .
+git commit -m "Update h3 text in home function"
+git push origin build-deploy
 ```
+After a successful commit, first, GitHub actions workflow run automatically, you can check it from the GitHub repository page shown below
 
-#### 6.4 Test run
+![screenshot](screenshots/pipeline-run-1.png)
 
+Go to the Azure DevOps Pipeline page. You will see that our pipeline is running. It can take up to 15 minutes to build and deploy.
+
+![screenshot](screenshots/pipeline-run-2.png)
+
+![screenshot](screenshots/pipeline-run-3.png)
+
+![screenshot](screenshots/pipeline-run-4.png)
+
+![screenshot](screenshots/pipeline-run-5.png)
+
+Check the webpage after succesful deployment.
+
+![screenshot](screenshots/pipeline-run-deployment.png)
+
+
+#### 6.4 Output of test run after the deployment
+Open Azure Cloud Shell and test the prediction.
+
+```bash
+./make_predict_azure_app.sh
 ```
-output of logs
-```
+![screenshot](screenshots/pipeline-run-test-predict.png)
 
 ### 7. Load test
 Running load test with locust.
@@ -532,9 +557,13 @@ Running load test with locust.
 `locustfile.py` is a script for load testing a web application using Locust, an open-source load testing tool. It defines the behaviour of a simulated user on the website. It has two tasks. One is index that simulates opening the home page of the site. The other is predict that simulates a post request to the /predict endpoint of the website sending the json with a data.
 
 #### 7.1 Locust with web interface
+You can run this command on your local repository to use the Locust web interface.
+
 ```
 locust -f locustfile.py -H https://your_app_name.azurewebsites.net
 ```
+![screenshot](screenshots/locust-web-run.png)
+
 After running the command, you can open the Locust’s web interface at http://localhost:8089.
 
 ![screenshot](screenshots/6-locust-load-test.png)
@@ -543,7 +572,7 @@ After running the command, you can open the Locust’s web interface at http://l
 
 #### 7.2 Locust with the shell
 
-Alternatively you can run locust in the shell without web interface.
+Alternatively you can run Locust without web interface on the Azure Cloud Shell 
 
 ```
 locust -f locustfile.py --headless -u 10 -r 5 --run-time 30 --host https://your_app_name.azurewebsites.net
