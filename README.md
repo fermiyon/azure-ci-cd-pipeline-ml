@@ -293,7 +293,7 @@ Creating the VM via Azure Web Interface
 
 ![screenshot](screenshots/azure-create-vm-2.png)
 
-Alternatively you can create via Azure CLI
+Alternatively you can create via Azure CLI (Do not forget to change the admin password in the command below)
 
 ```bash
 az vm create --resource-group Azuredevops --name appVM --admin-username devopsagent --admin-password your_password --image Ubuntu2204 --size Standard_DS1_v2 --generate-ssh-keys
@@ -417,7 +417,9 @@ Select the repository.
 
 ![screenshot](screenshots/devops-new-pipeline-3.png)
 
-For configuration, select existing yaml file since we have yaml file in our repository. If you don't have yaml file, you can select a starter template. 
+For configuration, select existing yaml file since we have yaml file in our repository. If you don't have yaml file, you can select a starter template.
+
+ If it directly goes to the review pipeline page, edit the pipeline, select build-deploy branch yaml file and click run.- If you encounter env could not find error, edit the pipeline, go to the build-deploy branch and click run.
 
 ![screenshot](screenshots/devops-new-pipeline-4.png)
 
