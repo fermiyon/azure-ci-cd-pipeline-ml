@@ -1,0 +1,1 @@
+az webapp up --resource-group Azuredevops --sku B1 --logs --runtime "PYTHON:3.9" -n flask145

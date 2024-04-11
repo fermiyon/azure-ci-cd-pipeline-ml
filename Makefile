@@ -1,15 +1,15 @@
 setup:
-	python3.10 -m venv ~/.venv
+	python3.9 -m venv ~/.venv
 	#source ~/.venv/bin/activate
 
 install:
-	pip3.10 install --upgrade pip &&\
-		pip3.10 install -r requirements.txt
+	pip install --upgrade pip &&\
+		pip install -r requirements.txt
 
 test:
 	#python -m pytest -vv --cov=myrepolib tests/*.py
 	#python -m pytest --nbval notebook.ipynb
-
+	pytest
 
 lint:
 	#hadolint Dockerfile #uncomment to explore linting Dockerfiles
