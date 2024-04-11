@@ -16,16 +16,12 @@ By Selman Karaosmanoglu
 Deploy a Flask-based machine learning application on Azure, with the CI/CD pipelines for streamlined updates and maintenance
 
 ## Project Plan
-<TODO: Project Plan
+* [Trello board for the project](https://1drv.ms/x/s!AktLOGIOQkqecKloTqzKHymAFOY?e=cGzMa2)
+* [Spreadsheet for the project plan](https://1drv.ms/x/s!AktLOGIOQkqecKloTqzKHymAFOY?e=cGzMa2)
 
-* A link to a Trello board for the project
-* A link to a spreadsheet that includes the original and final project plan>
-
-## Requirements
-
-Language: Python 3.9
-
-Libraries: pandas, flask, scikit-learn, joblib, locust, pylint, pytest, werkzeug (see requirements.txt)
+## Prerequisites
+* [an Azure account](https://portal.azure.com)
+* [a GitHub account](https://www.github.com)
 
 ## Instructions
 
@@ -627,7 +623,11 @@ locust -f locustfile.py --headless -u 10 -r 5 --run-time 30 --host https://your_
 
 ![screenshot](screenshots/azure-locust-2.png)
 
+## Requirements
 
+Language: Python 3.9
+
+Libraries: pandas, flask, scikit-learn, joblib, locust, pylint, pytest, werkzeug (see requirements.txt)
 
 ## Enhancements
 - The Kubernetes version of the project can be made.
