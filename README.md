@@ -144,7 +144,7 @@ jobs:
 Once you have created a workflow, each time you push a commit, an event is triggered that executes the workflow above.
 
 ### 3. Create Azure App Service
-The following parts
+The following section show how to manually deploy our flask application using Azure App Service and test it via Azure Cloud Shell.
 #### 3.1 Open Azure Cloud Shell (or Azure CLI)
 
 Go to https://portal.azure.com and open Azure Cloud Shell.
