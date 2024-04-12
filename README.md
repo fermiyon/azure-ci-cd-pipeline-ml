@@ -17,7 +17,7 @@ Deploy a Flask-based machine learning application on Azure, with the CI/CD pipel
 
 ## Project Plan
 * [Trello board for the project](https://trello.com/b/komPo9UB/project)
-* [Spreadsheet for the project plan](https://1drv.ms/x/s!AktLOGIOQkqecKloTqzKHymAFOY?e=cGzMa2)
+* [Spreadsheet for the project plan](https://docs.google.com/spreadsheets/d/1HoSYQIiP7T31eLKW6cnpgNWpM_oNzrgT/edit#gid=744226840)
 
 ## Prerequisites
 * [an Azure account](https://portal.azure.com)
