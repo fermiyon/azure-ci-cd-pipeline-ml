@@ -638,7 +638,7 @@ Libraries: pandas, flask, scikit-learn, joblib, locust, pylint, pytest, werkzeug
 
 
 ## Demo 
-[![Video](https://img.youtube.com/vi/TXKHZVNagtE/0.jpg)](https://www.youtube.com/watch?v=TXKHZVNagtE)
+[![Video](https://img.youtube.com/vi/3POgYC7_rk4/0.jpg)](https://www.youtube.com/watch?v=3POgYC7_rk4)
 
 
 
